@@ -2,7 +2,14 @@
   "holder": "J. Sun",
   "version": "1.0",
   "license": "CC-BY-SA-4.0",
+  "registry_doi": "10.5281/zenodo.16778141",
   "updated": "2025-08-08",
+  "scope": {
+    "type": "github-account",
+    "account": "JSunOfficial-arch",
+    "includes": "all repositories (public and private)",
+    "excludes": "repositories explicitly marked as 'out of scope' in their README or LICENSE"
+  },
   "use": {
     "allowed": [
       "reference",
@@ -15,17 +22,5 @@
       "provenance_removal"
     ]
   },
-  "projects": [
-    {
-      "name": "Muon \u2014 Structural Anchor",
-      "doi": "10.5281/zenodo.16777700",
-      "intent": "ANCHOR_NOT_PAYLOAD",
-      "tags": [
-        "muon",
-        "structural-sovereignty",
-        "provenance",
-        "collaboration-ethics"
-      ]
-    }
-  ]
+  "notes": "This registry acts as a structural anchor for all repositories under the JSunOfficial-arch GitHub account, unless explicitly excluded in that repository."
 }
