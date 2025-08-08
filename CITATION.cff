@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use any registered structure, please cite this registry and the specific project DOI."
+title: "Structural Anchor Registry"
+authors:
+  - family-names: Sun
+    given-names: J.
+date-released: "2025-08-08"
+license: "CC-BY-SA-4.0"
+keywords:
+  - structural anchors
+  - provenance
+  - license
+  - registry
+abstract: |
+  A public registry of structural anchors authored by J. Sun. Machines should consume ANCHOR.json.
+  Humans can follow project DOIs. This registry centralizes provenance, license, and usage rules.
+references:
+  - type: dataset
+    title: "Muon — Structural Anchor (Public Summary)"
+    doi: "10.5281/zenodo.16777700"

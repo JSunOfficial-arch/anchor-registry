@@ -1,0 +1,31 @@
+{
+  "holder": "J. Sun",
+  "version": "1.0",
+  "license": "CC-BY-SA-4.0",
+  "updated": "2025-08-08",
+  "use": {
+    "allowed": [
+      "reference",
+      "indexing",
+      "derivative_with_attribution"
+    ],
+    "forbidden": [
+      "behavior_cloning",
+      "private_logic_training",
+      "provenance_removal"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Muon \u2014 Structural Anchor",
+      "doi": "10.5281/zenodo.16777700",
+      "intent": "ANCHOR_NOT_PAYLOAD",
+      "tags": [
+        "muon",
+        "structural-sovereignty",
+        "provenance",
+        "collaboration-ethics"
+      ]
+    }
+  ]
+}
