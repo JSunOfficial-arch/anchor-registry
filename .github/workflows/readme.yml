@@ -22,11 +22,17 @@ jobs:
       - id: meta
         shell: bash
         run: |
-          val=$(jq -r '.zenodo_concept_doi // empty' links.json 2>/dev/null || echo "")
-          echo "concept_doi=$val" >> "$GITHUB_OUTPUT"
+          set -e
+          concept=$(jq -r '.zenodo_concept_doi // empty' links.json 2>/dev/null || echo "")
+          if [ -z "$concept" ]; then
+            echo "zenodo_concept_doi is empty in links.json" >&2
+            exit 1
+          fi
+          echo "concept_doi=$concept" >> "$GITHUB_OUTPUT"
 
   build:
     needs: ctx
-    uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
+    uses: ./.github/workflows/readme-sync.yml
     with:
       concept_doi: ${{ needs.ctx.outputs.concept_doi }}
+    secrets: inherit
