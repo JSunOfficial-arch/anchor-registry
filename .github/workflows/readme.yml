@@ -13,7 +13,26 @@ permissions:
   contents: write
 
 jobs:
+  ctx:
+    runs-on: ubuntu-latest
+    outputs:
+      concept_doi: ${{ steps.meta.outputs.concept_doi }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: meta
+        shell: bash
+        run: |
+          set -e
+          v=$(jq -r '.zenodo_concept_doi // empty' links.json)
+          if [ -z "$v" ]; then
+            echo "zenodo_concept_doi is empty in links.json" >&2
+            exit 1
+          fi
+          echo "concept_doi=$v" >> "$GITHUB_OUTPUT"
+
   build:
+    needs: ctx
     uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
     with:
-      concept_doi: ${{ fromJson(steps.ctx.outputs.data).zenodo_concept_doi }}
+      concept_doi: ${{ needs.ctx.outputs.concept_doi }}
+    secrets: inherit
