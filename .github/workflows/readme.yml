@@ -15,4 +15,5 @@ permissions:
 jobs:
   build:
     uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
-    secrets: inherit
+    with:
+      concept_doi: ${{ fromJson(steps.ctx.outputs.data).zenodo_concept_doi }}
