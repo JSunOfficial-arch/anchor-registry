@@ -1,0 +1,57 @@
+name: Policy Guard
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify required files exist
+        run: |
+          missing=0
+
+          must_have=("POLICY.md" "CITATION.cff")
+          optional=("ANCHOR.json")
+
+          echo "🔎 Checking must-have files..."
+          for f in "${must_have[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ Missing required file: $f"
+              missing=1
+            else
+              echo "✅ Found $f"
+            fi
+          done
+
+          echo "ℹ️ Optional files (recommended): ${optional[*]}"
+          for f in "${optional[@]}"; do
+            if [ -f "$f" ]; then
+              echo "✅ Found optional $f"
+            else
+              echo "⚠️ Optional file not present: $f"
+            fi
+          done
+
+          if [ $missing -ne 0 ]; then
+            echo ""
+            echo "📝 Fix tips:"
+            echo "  - Add POLICY.md (usage & attribution policy)."
+            echo "  - Add CITATION.cff (author + DOI metadata)."
+            echo "  - (Optional) Add ANCHOR.json for machine-readable scope."
+            exit 1
+          fi
+
+      - name: Brief lint for POLICY.md anchors
+        if: always()
+        run: |
+          if [ -f POLICY.md ]; then
+            grep -q -i "Allowed" POLICY.md && echo "✅ POLICY.md contains Allowed section" || echo "⚠️ Consider adding an 'Allowed' section"
+            grep -q -i "Forbidden" POLICY.md && echo "✅ POLICY.md contains Forbidden section" || echo "⚠️ Consider adding a 'Forbidden' section"
+          fi
