@@ -2,15 +2,17 @@ name: README Auto Sync
 
 on:
   push:
+    branches: [main]
     paths:
-      - 'README.tpl.md'
-      - 'CONTENT.md'
-      - 'links.json'
-      - '.github/workflows/readme.yml'
+      - links.json
+      - README.tpl.md
+      - CONTENT.md
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  sync:
+  build:
     uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
-    with:
-      concept_doi: '10.5281/zenodo.16798141'   
+    secrets: inherit
