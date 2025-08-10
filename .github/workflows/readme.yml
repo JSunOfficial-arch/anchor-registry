@@ -2,7 +2,7 @@ name: README Auto Sync
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - links.json
       - README.tpl.md
@@ -13,26 +13,6 @@ permissions:
   contents: write
 
 jobs:
-  ctx:
-    runs-on: ubuntu-latest
-    outputs:
-      concept_doi: ${{ steps.meta.outputs.concept_doi }}
-    steps:
-      - uses: actions/checkout@v4
-      - id: meta
-        shell: bash
-        run: |
-          set -e
-          concept=$(jq -r '.zenodo_concept_doi // empty' links.json 2>/dev/null || echo "")
-          if [ -z "$concept" ]; then
-            echo "zenodo_concept_doi is empty in links.json" >&2
-            exit 1
-          fi
-          echo "concept_doi=$concept" >> "$GITHUB_OUTPUT"
-
-  build:
-    needs: ctx
-    uses: ./.github/workflows/readme-sync.yml
-    with:
-      concept_doi: ${{ needs.ctx.outputs.concept_doi }}
+  sync:
+    uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
     secrets: inherit
