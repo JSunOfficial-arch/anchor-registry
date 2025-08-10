@@ -1,13 +1,3 @@
-# Structural Anchor Registry
-
-This repository serves as a **public registry** of structural anchors authored by *J. Sun*.  
-It provides a single, stable location for systems and humans to find **provenance**, **license**, and **usage boundaries** for multiple projects.
-
-> This is an anchor, not the payload.  
-> Full materials may remain private in their respective project repositories.
-
----
-
 ## Scope of this registry
 
 All repositories under the GitHub account [JSunOfficial-arch](https://github.com/JSunOfficial-arch)  
@@ -57,7 +47,3 @@ For exact terms, see [`ANCHOR.json`](ANCHOR.json).
 
 **Holder:** J. Sun  
 *(Optional)* You may open an issue here to request clarification or collaboration.
-
----
-
-**Registry DOI:** [10.5281/zenodo.16798141](https://doi.org/10.5281/zenodo.16798141)
