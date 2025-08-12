@@ -14,5 +14,8 @@ permissions:
 
 jobs:
   sync:
-    uses: JSunOfficial-arch/.github/.github/workflows/ping.yml@main
+    uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
+    with:
+      # 概念 DOI，和 links.json 保持一致；没有就留空也可
+      concept_doi: 10.5281/zenodo.16778141
     secrets: inherit
