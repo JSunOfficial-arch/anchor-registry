@@ -5,7 +5,7 @@ Repository: https://github.com/JSunOfficial-arch/anchor-registry
 OSF: [![OSF](https://img.shields.io/badge/OSF-RECORD-blue?style=flat-square)]()
 Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16778141.svg)](https://doi.org/10.5281/zenodo.16778141)
 
-_Last auto-sync: 2025-08-12 04:43 UTC_  
+_Last auto-sync: 2025-08-12 04:56 UTC_  
 
 ---
 
