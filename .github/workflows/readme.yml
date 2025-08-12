@@ -1,3 +1,4 @@
+# .github/workflows/readme.yml  （在 anchor-registry 仓库里）
 name: README Auto Sync
 
 on:
@@ -9,12 +10,11 @@ on:
       - CONTENT.md
   workflow_dispatch:
 
+# 调用方只读即可；写权限由被调用工作流里设置
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   sync:
     uses: JSunOfficial-arch/.github/.github/workflows/readme-sync.yml@main
-    with:
-      concept_doi: 10.5281/zenodo.16778141
     secrets: inherit
