@@ -1,0 +1,17 @@
+name: Smoke
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "smoke ok: $GITHUB_REPOSITORY @ $GITHUB_SHA"
