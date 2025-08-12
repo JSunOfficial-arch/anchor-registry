@@ -12,7 +12,7 @@ on:
 
 # 调用方只读即可；写权限由被调用工作流里设置
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   sync:
